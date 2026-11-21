@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reading Log 📚</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Reading Log 📚</h1>
+    <p class="subtitle">Track books read, pages, and borrowed-book due dates</p>
+
+    <div class="dashboard">
+      <div><h2 id="totalReading">0</h2><span>Reading</span></div>
+      <div><h2 id="totalPages">0</h2><span>Pages Read</span></div>
+      <div><h2 id="totalFinished">0</h2><span>Finished</span></div>
+      <div><h2 id="totalOverdue">0</h2><span>Overdue</span></div>
+    </div>
+
+    <input type="text" id="searchInput" placeholder="🔍 Search book or author..." onkeyup="renderBooks()">
+
+    <div class="filters">
+      <button class="filter-btn active" onclick="setFilter('All', this)">All</button>
+      <button class="filter-btn" onclick="setFilter('Reading', this)">Reading</button>
+      <button class="filter-btn" onclick="setFilter('Finished', this)">Finished</button>
+      <button class="filter-btn" onclick="setFilter('Overdue', this)">Overdue</button>
+      <button class="filter-btn" onclick="setFilter('Borrowed', this)">Borrowed</button>
+    </div>
+
+    <div class="add-box">
+      <h3>+ Add New Book</h3>
+      <input type="text" id="title" placeholder="Book Title *">
+      <input type="text" id="author" placeholder="Author">
+      <input type="number" id="totalPagesInput" placeholder="Total Pages *">
+      <label class="check"><input type="checkbox" id="isBorrowed"> Borrowed Book?</label>
+      <input type="date" id="dueDate" style="display:none;">
+      <button class="add-btn" onclick="addBook()">Add Book</button>
+    </div>
+
+    <h3 class="section-title">Books</h3>
+    <div id="bookList"></div>
+    <p class="footer">Made for Students • Reading Log</p>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
